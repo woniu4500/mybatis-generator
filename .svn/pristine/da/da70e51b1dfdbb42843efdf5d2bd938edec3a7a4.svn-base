@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<properties
+		url="file:///E:\WorkSpace_HUBS1\TOOL\mybatis-generator\Config.properties" />
+
+	<classPathEntry location="${classPathEntry.oracle}" />
+	<classPathEntry location="${classPathEntry.mysql}" />
+	<classPathEntry location="${classPathEntry.sql}" />
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" >
+		     <property name="suppressJavaInterface" value="false" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+	<plugin type="org.mybatis.generator.plugins.MysqlPaginationPlugin" />
+	<!-- <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> -->
+		<plugin type="org.mybatis.generator.plugins.VirtualPrimaryKeyPlugin" />
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${jdbcConnection.driverClass}"
+			connectionURL="${jdbcConnection.connectionURL}" userId="${jdbcConnection.userId}"
+			password="${jdbcConnection.password}">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+
+		<javaModelGenerator targetPackage="${targetPackage}.entity"
+			targetProject="${targetProject}">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+			<property name="newHashMap" value="true"/>
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="${targetPackage}.sqlmap"
+			targetProject="${targetProject}">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="${targetPackage}.dao" implementationPackage="${targetPackage}.dao.impl"
+			targetProject="${targetProject}">
+			<property name="enableSubPackages" value="false" />
+			<property name="exampleMethodVisibility" value="public" />
+			<property name="methodNameCalculator" value="extended" />
+		</javaClientGenerator>
+ 
+ 
+		<table schema="" tableName="operation_log">
+			<generatedKey column="logid" sqlStatement="MySql" 	identity="true" />
+		</table>
+		<table schema="" tableName="room_info">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+			<columnOverride column="room_name" javaType="java.util.Map" 	typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+			<columnOverride column="room_desc" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="rate_info">
+			<generatedKey column="id" sqlStatement="MySql" identity="true" />
+			<columnOverride column="rate_name" javaType="java.util.Map" 	typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+			<columnOverride column="rate_desc" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+	    <table schema="" tableName="derived_rule">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+		</table>
+		
+		 <table schema="" tableName="room_bedtype">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+	
+		 <table schema="" tableName="rate_category">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+	    
+	    <table schema="" tableName="market_category">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="marketcode">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="source_category">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="sourcecode">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="guarantee_rule">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="rule_desc" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="cancel_rule">
+		  <!--   <property name="virtualKeyColumns" value="chaincode, cancel_code"/> -->
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="rule_desc" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		
+		<table schema="" tableName="receive_mode">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="desc" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+	    <table schema="" tableName="currency">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+		
+		<table schema="" tableName="hotel_group">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+			<columnOverride column="name" javaType="java.util.Map"  typeHandler="com.itcrowd.framework.mybatis.handler.JsonTypeHandler" />
+		</table>
+	    <table schema="" tableName="hotel_group_info">
+			<generatedKey column="id" sqlStatement="MySql" 	identity="true" />
+		</table>
+	</context>
+</generatorConfiguration>
