@@ -19,7 +19,8 @@
 			<property name="replaceString" value="Criteria" />
 		</plugin>
 		<plugin type="org.mybatis.generator.plugins.MysqlPaginationPlugin" />
-
+		<plugin type="org.mybatis.generator.plugins.OraclePaginationPlugin" />
+		
 		<commentGenerator>
 			<property name="suppressDate" value="true" />
 			<property name="suppressAllComments" value="true" />
@@ -64,13 +65,27 @@
 			/> <table schema="" tableName="TBL_WEB_MEMBER_INFO" /> <table schema="" tableName="TBL_BIZ_MERCHANT" 
 			/> <table schema="" tableName="TBL_BIZ_LOAN_DATA" /> <table schema="" tableName="TBL_MHT_MONTH_INFO" 
 			/> -->
+			
+		<table schema="" tableName="TBL_WEB_MEMBER_INFO" />	
+		
 		<!-- 
 		<table schema="" tableName="resource" />
 		<table schema="" tableName="role" />
 		<table schema="" tableName="role_to_resource" />
 		<table schema="" tableName="user" />
 		<table schema="" tableName="user_to_role" />
-		 -->
-		<table schema="" tableName="web_sec_code" />
+		<table schema="" tableName="tbl_area_centre_rel" />
+		<table schema="" tableName="tbl_area_info" />
+		<table schema="" tableName="tbl_centre_info" />
+		<table schema="" tableName="tbl_gjj_account_info" />
+		<table schema="" tableName="tbl_gjj_branch_info" />
+		<table schema="" tableName="tbl_gjj_login_info" />
+		<table schema="" tableName="tbl_gjj_detail_info" />
+		-->
+		
+		<!-- 
+		<table schema="" tableName="tbl_weixin_info" />
+		-->
+		
 	</context>
 </generatorConfiguration>

@@ -9,9 +9,7 @@ public class TestShellRunner {
         args[0] = "-configfile";
         args[1] = "Config.xml";
         args[2] = "-overwrite";
-
         ShellRunner.main(args);
-
     }
 
 }
